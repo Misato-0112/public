@@ -1,0 +1,131 @@
+@use "../setting" as s;
+
+/*ヘッダー------------------*/
+.header {
+    background-color: s.$color-white;
+    padding-inline: s.vw(16);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: s.vw(60);
+    z-index: 1000;
+    @include s.rs(
+        (
+            height: s.mvw(94),
+            padding-inline: s.mvw(40),
+        )
+    );
+
+    &__inner {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__logo {
+        width: s.vw(120);
+        @include s.rs(
+            (
+                width: s.mvw(160),
+            )
+        );
+
+        &-image {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &-nav {
+        display: none;
+        @include s.rs(
+            (
+                display: block,
+            )
+        );
+
+        &__list {
+            display: flex;
+            flex-direction: row;
+            gap: s.vw(48);
+            align-items: center;
+            @include s.rs(
+                (
+                    gap: s.mvw(48),
+                )
+            );
+        }
+    }
+
+    &__btn {
+        @include s.rs((width s.mvw(155)));
+    }
+}
+
+/*ハンバーガーメニュー*/
+.hamburger {
+    &-menu {
+        display: block;
+        @include s.rs(
+            (
+                display: none,
+            )
+        );
+    }
+    &__button {
+        display: flex;
+        flex-direction: column;
+        gap: s.vw(8);
+        justify-content: center;
+    }
+    &__line {
+        width: s.vw(30);
+        height: s.vw(3);
+        border-radius: s.vw(2);
+        background-color: s.$color-black;
+    }
+    &-nav {
+        display: none;
+        position: absolute;
+        top: s.vw(80);
+        right: 0;
+        left: 0;
+        background-color: s.$color-green;
+        border-radius: s.vw(20);
+        box-shadow: 0 s.vw(4) s.vw(4) rgba(0, 0, 0, 0.25);
+        text-align: center;
+        &.active {
+            display: block;
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: s.vw(16);
+            padding-block: s.vw(32);
+            text-align: center;
+        }
+        &__link {
+            color: s.$color-white;
+            font-size: s.vw(16);
+        }
+    }
+    &__btn {
+        background-color: s.$color-white;
+        color: s.$color-green;
+    }
+}
+
+/* ハンバーガーライン回転 */
+.hamburger__line.hamburger__line--first.active {
+    transition: all 0.15s linear;
+    transform: translateY(s.vw(6)) rotate(45deg);
+}
+
+.hamburger__line.hamburger__line--second.active {
+    transition: all 0.15s linear;
+    transform: translateY(s.vw(-5)) rotate(-45deg);
+}

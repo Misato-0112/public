@@ -1,0 +1,60 @@
+@use "../setting" as s;
+
+/* リセット------------------ */
+a,
+button {
+    color: s.$color-black;
+    text-decoration: none;
+    // リンクホバー時
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/* bodyフォント・ボックスサイジング */
+body {
+    box-sizing: border-box;
+    font-size: s.vw(16);
+    line-height: 1.75;
+    color: s.$color-black;
+    font-family: "Noto Sans JP", sans-serif;
+    @include s.rs(
+        (
+            font-size: s.mvw(16),
+        )
+    );
+}
+
+/*セクション共通------------------*/
+/*コンタクトボタン*/
+.contact__btn {
+    display: block;
+    width: s.vw(200);
+    height: s.vw(46);
+    background-color: s.$color-green;
+    color: s.$color-white;
+    text-align: center;
+    line-height: s.vw(46);
+    border-radius: s.vw(50);
+    @include s.rs(
+        (
+            width: s.mvw(200),
+            height: s.mvw(46),
+            line-height: s.mvw(46),
+            border-radius: s.mvw(50),
+        )
+    );
+}

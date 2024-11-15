@@ -1,0 +1,17 @@
+// 字間トラッキングのmixin
+@mixin tracking($tracking) {
+    letter-spacing: ($tracking / 1000) + em;
+}
+
+// 行間のmixin
+@mixin font-lin($font-size, $lin) {
+    //$font-sizeの数値の単位はpx
+    line-height: $lin / $font-size;
+}
+
+// コンテナ幅のmixin
+@mixin container($width) {
+    width: $width;
+    height: auto;
+    margin-inline: auto;
+}

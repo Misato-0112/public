@@ -1,0 +1,150 @@
+//-----------------------------------------------------
+// scss: 変数設定
+//-----------------------------------------------------
+
+// カンプ / コンテンツ幅の指定
+$sp-full-width: 390; // スマホ用のカンプ幅
+$pc-full-width: 1442; // PC用のカンプ幅
+$pc-content-width: 1000; // PC用のカンプのコンテンツ幅(ガイド線の幅)
+
+// ブレークポイント設定
+// スマホ:
+//    0px ~ 768px未満 -> スマホ用のカンプをベースにvwで実装
+// タブレット:
+//    768px ~ PCコンテンツ幅未満 -> PC用のカンプをベースにvwで実装。予算の多い案件ではタブレット用のカンプが提供される場合もある。
+// PC:
+//    PCコンテンツ幅以上 -> PC用のカンプをベースにpx(rem)で実装
+$breakpoint-md: 768;
+$breakpoint-lg: $pc-content-width;
+
+// 本番用か否か？本番用の場合は1にする。
+// 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
+$production: 1;
+
+//-----------------------------------------------------
+//  scss: ブレークポイント関数
+//-----------------------------------------------------
+
+$breakpoints: (
+    "md": "screen and (min-width: #{$breakpoint-md}px)",
+    "lg": "screen and (min-width: #{$breakpoint-lg}px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+//-----------------------------------------------------
+//  scss: 変換関数群
+//-----------------------------------------------------
+
+// SP用: vwへの変換
+@function vw($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $sp-full-width);
+}
+
+// タブレット用: vwへの変換
+@function vwt($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $pc-content-width);
+}
+
+// PC用: pxをremに変換
+@function px2Rem($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px / 16) * 1rem;
+}
+
+// PC用: pxをvwに変換
+// ヘッダーなどコンテンツ幅ベースではなくかんぷ幅ベースでvwを使いたい場合に使用。
+// あまり使わない。
+@function vwp($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $pc-full-width);
+}
+
+// PC/タブレット同時適用
+// 2つのメディアクエリで、vwt/px2remそれぞれをそれぞれを適用したい場合に使う。
+// 例: @include rs((font-size: mvw(30), margin: 0 0 mvw(20) mvw(20) mvw(5)));
+@function mvw($px) {
+    @return (mvw: true, value: $px);
+}
+
+//-----------------------------------------------------
+//  scss: タブレット/PC用のcssを生成するmixin
+//-----------------------------------------------------
+
+// 二つのメディアクエリを出力する
+// 768pxからPCコンテンツ幅の間はvwtを適用、コンテンツ幅以上は、px2remを適用
+@mixin rs($styles) {
+    // タブレット用
+    @include mq() {
+        @each $property, $value in $styles {
+            $processed-value: process-value($value, vwt); // 変換関数はvwt
+            #{$property}: $processed-value;
+        }
+    }
+
+    // PC用
+    @include mq(lg) {
+        @each $property, $value in $styles {
+            $processed-value: process-value($value, px2Rem); // 変換関数はpx2Rem
+            #{$property}: $processed-value;
+        }
+    }
+}
+
+// CSSプロパティ一行分の処理
+@function process-value($value, $convert-func) {
+    @if type-of($value) == "list" {
+        // リストの場合、各要素を処理。margin: 0 0 mvw(10) mvw(10); のような場合
+        $result: ();
+        @each $item in $value {
+            $processed-item: process-item($item, $convert-func);
+            $result: append($result, $processed-item);
+        }
+        @return $result;
+    } @else {
+        // 単一の値の場合、直接処理
+        @return process-item($value, $convert-func);
+    }
+}
+
+// プロパティの値一つ一つの処理
+@function process-item($item, $convert-func) {
+    // mvwを使っている場合、mvw関数によって値は (mvw: true, value: $px) という形になっている。
+    @if type-of($item) == "map" {
+        $apply-mvw: map-get($item, "mvw") or false;
+        $actual-value: map-get($item, "value");
+
+        @if $apply-mvw == true {
+            @if $convert-func == "px2Rem" {
+                @return px2Rem($actual-value);
+            } @else if $convert-func == "vwt" {
+                @return vwt($actual-value);
+            } @else {
+                @return $actual-value;
+            }
+        } @else {
+            @return $actual-value;
+        }
+    } @else {
+        // マップでない場合、そのまま返す
+        @return $item;
+    }
+}
