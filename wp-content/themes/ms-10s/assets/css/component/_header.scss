@@ -60,7 +60,12 @@
     }
 
     &__btn {
-        @include s.rs((width s.mvw(155)));
+        width: s.vw(155);
+        @include s.rs(
+            (
+                width: s.mvw(155),
+            )
+        );
     }
 }
 
@@ -74,18 +79,31 @@
             )
         );
     }
+
     &__button {
         display: flex;
         flex-direction: column;
         gap: s.vw(8);
         justify-content: center;
     }
+
     &__line {
         width: s.vw(30);
         height: s.vw(3);
         border-radius: s.vw(2);
         background-color: s.$color-black;
+        transition: all 0.15s linear;
+
+        /* ハンバーガーライン回転 */
+        &--first.active {
+            transform: translateY(s.vw(6)) rotate(45deg);
+        }
+
+        &--second.active {
+            transform: translateY(s.vw(-5)) rotate(-45deg);
+        }
     }
+
     &-nav {
         display: none;
         position: absolute;
@@ -96,9 +114,11 @@
         border-radius: s.vw(20);
         box-shadow: 0 s.vw(4) s.vw(4) rgba(0, 0, 0, 0.25);
         text-align: center;
+
         &.active {
             display: block;
         }
+
         &__list {
             display: flex;
             flex-direction: column;
@@ -108,24 +128,15 @@
             padding-block: s.vw(32);
             text-align: center;
         }
+
         &__link {
             color: s.$color-white;
             font-size: s.vw(16);
         }
     }
+
     &__btn {
         background-color: s.$color-white;
         color: s.$color-green;
     }
-}
-
-/* ハンバーガーライン回転 */
-.hamburger__line.hamburger__line--first.active {
-    transition: all 0.15s linear;
-    transform: translateY(s.vw(6)) rotate(45deg);
-}
-
-.hamburger__line.hamburger__line--second.active {
-    transition: all 0.15s linear;
-    transform: translateY(s.vw(-5)) rotate(-45deg);
 }
