@@ -1,1 +1,37 @@
 @use "../setting" as s;
+
+/*フッター------------------*/
+.footer {
+    background-color: s.$color-green;
+    color: s.$color-white;
+    padding-inline: s.vw(20);
+    width: 100%;
+    height: s.vw(42);
+    @include s.rs(
+        (
+            height: s.mvw(42),
+            padding-inline: s.mvw(40),
+        )
+    );
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include s.rs(
+            (
+                justify-content: flex-end,
+            )
+        );
+    }
+    &__copy {
+        font-size: s.vw(14);
+        @include s.rs(
+            (
+                font-size: s.mvw(14),
+            )
+        );
+    }
+}

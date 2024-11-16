@@ -27,4 +27,19 @@ $(document).ready(function () {
             },
         });
     }
+
+        // トップへ戻るボタン
+    var backToTopButton = $(".to-top-button");
+    var showButtonHeight = 200;
+    var fadeDuration = 300;
+
+    $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > showButtonHeight) {
+            backToTopButton.fadeIn(fadeDuration).addClass("show");
+        } else {
+            backToTopButton.fadeOut(fadeDuration).removeClass("show");
+        }
+    });
 });

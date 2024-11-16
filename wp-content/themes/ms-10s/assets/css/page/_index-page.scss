@@ -1,0 +1,62 @@
+@use "../setting" as s;
+
+.cover {
+    position: relative;
+    background-image: url("../images/cover/cover_image_sp.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: s.vw(450);
+    margin-top: s.vw(60);
+    @include s.rs(
+        (
+            background-image: url("../images/cover/cover_image_pc.jpg"),
+            height: s.mvw(698),
+            margin-top: s.mvw(94),
+        )
+    );
+    &__inner {
+        position: absolute;
+        top: 19%;
+        left: 29%;
+        @include s.rs(
+            (
+                top: 32%,
+                left: 36%,
+            )
+        );
+    }
+    &__title {
+        color: white;
+        text-align: start;
+        font-size: s.vw(48);
+        font-weight: 500;
+        line-height: 1;
+        text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+        @include s.rs(
+            (
+                font-size: s.mvw(48),
+            )
+        );
+        &--big {
+            font-size: s.vw(64);
+            @include s.rs(
+                (
+                    font-size: s.mvw(64),
+                )
+            );
+        }
+        &--small {
+            font-size: s.vw(40);
+            font-weight: 700;
+            @include s.rs(
+                (
+                    font-size: s.mvw(40),
+                )
+            );
+        }
+        &--br {
+            display: block;
+        };
+    }
+}

@@ -30,7 +30,7 @@ body {
     font-size: s.vw(16);
     line-height: 1.75;
     color: s.$color-black;
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: "Noto Sans JP", serif;
     @include s.rs(
         (
             font-size: s.mvw(16),
@@ -38,7 +38,71 @@ body {
     );
 }
 
-/*セクション共通------------------*/
+/*共通------------------*/
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: s.vw(10);
+    @include s.rs(
+        (
+            scroll-padding-top: s.mvw(10),
+        )
+    );
+}
+
+/*to-topボタン*/
+.to-top-button {
+    position: sticky;
+    bottom: s.vw(42);
+    left: 0;
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    @include s.rs(
+        (
+            bottom: s.mvw(42),
+        )
+    );
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: s.vw(20);
+        @include s.rs(
+            (
+                padding-right: s.mvw(40),
+            )
+        );
+    }
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: s.vw(40);
+        height: s.vw(40);
+        background-color: s.$color-green;
+        @include s.rs(
+            (
+                width: s.mvw(40),
+                height: s.mvw(40),
+            )
+        );
+        &-icon {
+            width: s.vw(32);
+            height: s.vw(32);
+            color: s.$color-white;
+            @include s.rs(
+                (
+                    width: s.mvw(32),
+                    height: s.mvw(32),
+                )
+            );
+        }
+    }
+    &.show {
+        display: block;
+        opacity: 1;
+    }
+}
+
 /*コンタクトボタン*/
 .contact__btn {
     display: block;
