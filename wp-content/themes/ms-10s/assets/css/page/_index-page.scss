@@ -11,14 +11,14 @@
     @include s.rs(
         (
             background-image: url("../images/cover/cover_image_pc.jpg"),
-            height: s.mvw(698),
+            height: s.vwp(698),
             margin-top: s.mvw(94),
         )
     );
     &__inner {
         position: absolute;
         top: 19%;
-        left: 29%;
+        left: 34%;
         @include s.rs(
             (
                 top: 32%,
@@ -35,14 +35,14 @@
         text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
         @include s.rs(
             (
-                font-size: s.mvw(48),
+                font-size: s.vwp(48),
             )
         );
         &--big {
             font-size: s.vw(64);
             @include s.rs(
                 (
-                    font-size: s.mvw(64),
+                    font-size: s.vwp(64),
                 )
             );
         }
@@ -51,7 +51,7 @@
             font-weight: 700;
             @include s.rs(
                 (
-                    font-size: s.mvw(40),
+                    font-size: s.vwp(40),
                 )
             );
         }

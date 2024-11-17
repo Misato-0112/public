@@ -32,8 +32,8 @@
     <?php wp_head(); ?>
 </head>
 
-
 <body>
+    <?php wp_body_open(); ?>
     <header class="header">
         <div class="header__inner">
             <a href="/">

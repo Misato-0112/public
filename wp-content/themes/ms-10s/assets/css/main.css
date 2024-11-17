@@ -27,7 +27,7 @@ img {
 body {
   box-sizing: border-box;
   font-size: 4.1025641026vw;
-  line-height: 1.75;
+  line-height: 1.6;
   color: #3c4043;
   font-family: "Noto Sans JP", serif;
 }
@@ -160,6 +160,59 @@ html {
     height: 2.875rem;
     line-height: 2.875rem;
     border-radius: 3.125rem;
+  }
+}
+
+/*セクション*/
+.section__wrapper {
+  padding-top: 30.7692307692vw;
+}
+@media screen and (min-width: 768px) {
+  .section__wrapper {
+    padding-top: 12vw;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .section__wrapper {
+    padding-top: 7.5rem;
+  }
+}
+
+/*セクションタイトル*/
+.section-title {
+  font-size: 12.3076923077vw;
+  text-align: center;
+  margin-bottom: 10.2564102564vw;
+}
+@media screen and (min-width: 768px) {
+  .section-title {
+    font-size: 4.8vw;
+    margin-bottom: 4vw;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+  }
+}
+.section-title__main {
+  display: block;
+  font-weight: 700;
+}
+.section-title__sub {
+  display: block;
+  font-size: 3.5897435897vw;
+  color: #448b93;
+}
+@media screen and (min-width: 768px) {
+  .section-title__sub {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .section-title__sub {
+    font-size: 0.875rem;
   }
 }
 
@@ -381,21 +434,21 @@ html {
 @media screen and (min-width: 768px) {
   .cover {
     background-image: url("../images/cover/cover_image_pc.jpg");
-    height: 69.8vw;
+    height: 48.4049930652vw;
     margin-top: 9.4vw;
   }
 }
 @media screen and (min-width: 1000px) {
   .cover {
     background-image: url("../images/cover/cover_image_pc.jpg");
-    height: 43.625rem;
+    height: 48.4049930652vw;
     margin-top: 5.875rem;
   }
 }
 .cover__inner {
   position: absolute;
   top: 19%;
-  left: 29%;
+  left: 34%;
 }
 @media screen and (min-width: 768px) {
   .cover__inner {
@@ -419,12 +472,12 @@ html {
 }
 @media screen and (min-width: 768px) {
   .cover__title {
-    font-size: 4.8vw;
+    font-size: 3.3287101248vw;
   }
 }
 @media screen and (min-width: 1000px) {
   .cover__title {
-    font-size: 3rem;
+    font-size: 3.3287101248vw;
   }
 }
 .cover__title--big {
@@ -432,12 +485,12 @@ html {
 }
 @media screen and (min-width: 768px) {
   .cover__title--big {
-    font-size: 6.4vw;
+    font-size: 4.4382801664vw;
   }
 }
 @media screen and (min-width: 1000px) {
   .cover__title--big {
-    font-size: 4rem;
+    font-size: 4.4382801664vw;
   }
 }
 .cover__title--small {
@@ -446,12 +499,12 @@ html {
 }
 @media screen and (min-width: 768px) {
   .cover__title--small {
-    font-size: 4vw;
+    font-size: 2.773925104vw;
   }
 }
 @media screen and (min-width: 1000px) {
   .cover__title--small {
-    font-size: 2.5rem;
+    font-size: 2.773925104vw;
   }
 }
 .cover__title--br {

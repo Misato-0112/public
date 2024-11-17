@@ -28,7 +28,7 @@ img {
 body {
     box-sizing: border-box;
     font-size: s.vw(16);
-    line-height: 1.75;
+    line-height: 1.6;
     color: s.$color-black;
     font-family: "Noto Sans JP", serif;
     @include s.rs(
@@ -121,4 +121,41 @@ html {
             border-radius: s.mvw(50),
         )
     );
+}
+
+/*セクション*/
+.section__wrapper {
+    padding-top: s.vw(120);
+    @include s.rs(
+        (
+            padding-top: s.mvw(120),
+        )
+    );
+}
+
+/*セクションタイトル*/
+.section-title {
+    font-size: s.vw(48);
+    text-align: center;
+    margin-bottom: s.vw(40);
+    @include s.rs(
+        (
+            font-size: s.mvw(48),
+            margin-bottom: s.mvw(40),
+        )
+    );
+    &__main {
+        display: block;
+        font-weight: 700;
+    }
+    &__sub {
+        display: block;
+        font-size: s.vw(14);
+        color: s.$color-green;
+        @include s.rs(
+            (
+                font-size: s.mvw(14),
+            )
+        );
+    }
 }
