@@ -11,11 +11,10 @@
     </div>
 </footer>
 
-<!-- swiper読み込み -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<!-- js読み込み -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/script/main.js"></script>
+<!-- swiperの読み込み -->
+<?php
+wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'); ?>
+
 <?php wp_footer(); ?>
 </body>
 

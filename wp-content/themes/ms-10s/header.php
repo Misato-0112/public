@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Webデザインと建築パース | Ms-10's works.</title>
+    <!-- <title><?php bloginfo('name'); ?></title> -->
     <meta name="description" content="Ms-10's works.はWebデザインとコーディング、建築パースを作成しているフリーランス「misato」の仕事を紹介するサイトです。">
 
     <!-- OGP設定 -->
@@ -15,30 +15,33 @@
     <meta property="og:site_name" content="Ms-10's works.">
 
     <!-- cssリセット -->
-    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <?php wp_enqueue_style('ress', 'https://unpkg.com/ress@4.0.0/dist/ress.min.css'); ?>
+
     <!-- Google fontの読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
-        rel="stylesheet">
-
-    <!-- swiperの読み込み -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <?php wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap'); ?>
 
     <!-- スタイルシート読み込み -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
-
-    <?php wp_head(); ?>
+    <?php wp_enqueue_style('ms-10s-main', get_template_directory_uri() . '/assets/css/main.css'); ?>
+    <!-- JQuaryとjs読み込み -->
+    <?php
+    wp_enqueue_script('jquery');
+    wp_enqueue_script(
+        'ms-10s-main',
+        get_template_directory_uri() . '/assets/script/main.js',
+        array('jquery'),
+        null,
+        true
+    );
+    ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <header class="header">
         <div class="header__inner">
-            <a href="/">
-                <h1 class="header__logo"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></h1>
-            </a>
+            <h1 class="header__logo"><a href="<?php echo home_url(); ?>"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></a></h1>
             <nav class="header-nav">
                 <ul class="header-nav__list">
                     <li class="header-nav__item">
@@ -54,7 +57,7 @@
                         <a href="#about" class="header-nav__link">About</a>
                     </li>
                     <li>
-                        <a class="header__btn contact__btn">Contact</a>
+                        <a class="header__button contact__button">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -78,7 +81,7 @@
                             <a href="#about" class="hamburger-nav__link">About</a>
                         </li>
                         <li>
-                            <a class="hamburger__btn contact__btn">Contact</a>
+                            <a class="hamburger__button contact__button">Contact</a>
                         </li>
                     </ul>
                 </nav>

@@ -104,7 +104,7 @@ html {
 }
 
 /*コンタクトボタン*/
-.contact__btn {
+.contact__button {
     display: block;
     width: s.vw(200);
     height: s.vw(46);
@@ -113,6 +113,7 @@ html {
     text-align: center;
     line-height: s.vw(46);
     border-radius: s.vw(50);
+    margin-inline: auto;
     @include s.rs(
         (
             width: s.mvw(200),
@@ -123,12 +124,37 @@ html {
     );
 }
 
-/*セクション*/
-.section__wrapper {
-    padding-top: s.vw(120);
+/*moreボタン*/
+.more__button {
+    display: block;
+    width: s.vw(100);
+    height: s.vw(46);
+    background-color: s.$color-green;
+    color: s.$color-white;
+    text-align: center;
+    line-height: s.vw(46);
+    border-radius: s.vw(50);
+    margin-inline: auto;
     @include s.rs(
         (
-            padding-top: s.mvw(120),
+            width: s.mvw(100),
+            height: s.mvw(46),
+            line-height: s.mvw(46),
+            border-radius: s.mvw(50),
+        )
+    );
+}
+
+/*セクション*/
+.section__wrapper {
+    margin-top: s.vw(120);
+    padding-inline: s.vw(20);
+    @include s.rs(
+        (
+            margin-top: s.mvw(120),
+            padding-inline: 0,
+            max-width: s.mvw(1000),
+            margin-inline: auto,
         )
     );
 }
@@ -151,6 +177,7 @@ html {
     &__sub {
         display: block;
         font-size: s.vw(14);
+        font-weight: 400;
         color: s.$color-green;
         @include s.rs(
             (

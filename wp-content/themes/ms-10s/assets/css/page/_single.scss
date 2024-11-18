@@ -1,0 +1,72 @@
+@use "../setting" as s;
+
+/*お知らせ詳細（single.php)------------------*/
+/*ページタイトル（共通セクションタイトルからの変更）*/
+.page-title {
+    font-size: s.vw(32);
+    @include s.rs(
+        (
+            font-size: s.mvw(48),
+        )
+    );
+    &__main {
+        display: inline;
+        &--small {
+            display: inline;
+            @include s.rs(
+                (
+                    font-size: s.mvw(32),
+                )
+            );
+        }
+    }
+}
+
+.news-detail {
+    &__wrapper {
+        padding-bottom: s.vw(120);
+        @include s.rs(
+            (
+                padding-bottom: s.mvw(120),
+            )
+        );
+    }
+    &__header {
+        border-bottom: solid s.vw(1) s.$color-gray;
+        padding-bottom: s.vw(10);
+        @include s.rs(
+            (
+                border-bottom: solid s.mvw(1) s.$color-gray,
+                padding-bottom: s.mvw(10),
+            )
+        );
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: s.vw(24);
+        margin-block: s.vw(24);
+        @include s.rs(
+            (
+                flex-direction: row,
+                justify-content: space-between,
+                gap: s.mvw(24),
+                margin-block: s.mvw(24),
+            )
+        );
+        /*コンテンツ内テキストリンク装飾*/
+        &-text a {
+            color: s.$color-green;
+            text-decoration: underline;
+        }
+    }
+    &__thumbnail-image {
+        width: s.vw(176);
+        @include s.rs(
+            (
+                width: s.mvw(176),
+            )
+        );
+    }
+}
+

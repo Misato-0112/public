@@ -59,7 +59,7 @@
         }
     }
 
-    &__btn {
+    &__button {
         width: s.vw(155);
         @include s.rs(
             (
@@ -135,7 +135,7 @@
         }
     }
 
-    &__btn {
+    &__button {
         background-color: s.$color-white;
         color: s.$color-green;
     }

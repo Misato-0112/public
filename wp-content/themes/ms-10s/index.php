@@ -8,11 +8,6 @@
             </div>
         </div>
     <?php endif; ?>
-    <section id="service">
-        <div class="section__wrapper">
-            <h2 class="section-title"><span class="section-title__main">Service</span><span class="section-title__sub">サービス</span></h2>
-        </div>
-    </section>
 </main>
 
 <?php get_footer(); ?>
