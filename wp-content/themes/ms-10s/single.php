@@ -3,7 +3,7 @@
     <?php while (have_posts()): the_post(); ?>
         <main>
             <div class="section__wrapper">
-                <h2 class="section-title page-title"><span class="section-title__main page-title__main">News</span><span class="page-title__main--small">&nbsp;-&nbsp;Detail</span><span class="section-title__sub page-title__sub">お知らせ詳細</span></h2>
+                <h1 class="section-title page-title"><span class="section-title__main page-title__main">News</span><span class="page-title__main--small">&nbsp;-&nbsp;Detail</span><span class="section-title__sub page-title__sub">お知らせ詳細</span></h1>
                 <article id="<?php the_ID(); ?>" <?php post_class('post'); ?>>
                     <div class="news-detail__wrapper">
                         <div class="news-detail__header">
@@ -24,7 +24,7 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <h3 class="news__title"><span><?php the_title(); ?></span></h3>
+                            <h2 class="news__title"><span><?php the_title(); ?></span></h2>
                         </div>
                         <div class="news-detail__content">
                             <div class="news-detail__content-text">

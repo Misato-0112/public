@@ -13,36 +13,29 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://ms-10s.biz/">
     <meta property="og:site_name" content="Ms-10's works.">
-
-    <!-- cssリセット -->
-    <?php wp_enqueue_style('ress', 'https://unpkg.com/ress@4.0.0/dist/ress.min.css'); ?>
-
-    <!-- Google fontの読み込み -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <?php wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap'); ?>
-
-    <!-- スタイルシート読み込み -->
-    <?php wp_enqueue_style('ms-10s-main', get_template_directory_uri() . '/assets/css/main.css'); ?>
-    <!-- JQuaryとjs読み込み -->
-    <?php
-    wp_enqueue_script('jquery');
-    wp_enqueue_script(
-        'ms-10s-main',
-        get_template_directory_uri() . '/assets/script/main.js',
-        array('jquery'),
-        null,
-        true
-    );
-    ?>
+    <!-- スタイルシートの読み込みはfunctions.phpで行う -->
 </head>
+<?php wp_head(); ?>
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <header class="header">
         <div class="header__inner">
-            <h1 class="header__logo"><a href="<?php echo home_url(); ?>"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></a></h1>
+            <?php if (is_front_page()) : ?>
+                <h1 class="header__logo"><a href="<?php echo home_url(); ?>"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></a></h1>
+            <?php else : ?>
+                <div class="header__logo"><a href="<?php echo home_url(); ?>"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></a></div>
+            <?php endif; ?>
             <nav class="header-nav">
+                <?php
+                $args = [
+                    'menu' => 'global-navigation',
+                    'container' => false,
+                    'menu_class' => 'header-nav__list'
+                ];
+                wp_nav_menu($args);
+                ?>
+
                 <ul class="header-nav__list">
                     <li class="header-nav__item">
                         <a href="#service" class="header-nav__link">Service</a>

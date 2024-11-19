@@ -10,11 +10,7 @@
         <span class="footer__copy">© 2024 Ms-10's works.</span>
     </div>
 </footer>
-
-<!-- swiperの読み込み -->
-<?php
-wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'); ?>
-
+<!-- swiper、JQuary、js読み込みはfunctions.phpで行う -->
 <?php wp_footer(); ?>
 </body>
 

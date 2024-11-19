@@ -44,7 +44,7 @@ html {
     scroll-padding-top: s.vw(10);
     @include s.rs(
         (
-            scroll-padding-top: s.mvw(10),
+            scroll-padding-top: s.mvw(80),
         )
     );
 }
@@ -152,7 +152,7 @@ html {
     @include s.rs(
         (
             margin-top: s.mvw(120),
-            padding-inline: 0,
+            padding-inline: s.mvw(40),
             max-width: s.mvw(1000),
             margin-inline: auto,
         )

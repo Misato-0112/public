@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(function($) {
     // ハンバーガーメニューのフェードイン・フェードアウト
     var hamburger = $(".hamburger-nav");
     var hamburgerButton = $(".hamburger__line");
