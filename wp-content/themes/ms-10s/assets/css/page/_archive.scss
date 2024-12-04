@@ -1,0 +1,138 @@
+@use "../setting" as s;
+
+/*お知らせ一覧（archive.php)------------------*/
+/*基本的にsingle.phpで使用したスタイルを流用*/
+.archive-page {
+    padding-bottom: s.vw(120);
+    @include s.rs(
+        (
+            padding-bottom: s.mvw(120),
+        )
+    );
+}
+
+.post {
+    &__excerpt {
+        font-size: s.vw(14);
+        margin-top: s.vw(5);
+        @include s.rs(
+            (
+                font-size: s.mvw(14),
+                margin-top: s.mvw(5),
+            )
+        );
+        &-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+/*ページネーション*/
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: s.vw(30);
+    @include s.rs(
+        (
+            margin-top: s.mvw(30),
+        )
+    );
+    &__icon {
+        font-size: s.vw(24);
+        line-height: s.vw(24);
+        @include s.rs(
+            (
+                font-size: s.mvw(24),
+                line-height: s.mvw(24),
+            )
+        );
+    }
+    &__numbers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: s.vw(5);
+        @include s.rs(
+            (
+                gap: s.mvw(5),
+            )
+        );
+    }
+    &__number {
+        display: inline-block;
+        width: s.vw(24);
+        height: s.vw(24);
+        font-size: s.vw(16);
+        font-weight: bold;
+        line-height: s.vw(24);
+        color: s.$color-green;
+        text-align: center;
+        background-color: s.$color-light-gray;
+        @include s.rs(
+            (
+                width: s.mvw(24),
+                height: s.mvw(24),
+                font-size: s.mvw(16),
+                line-height: s.mvw(24),
+            )
+        );
+        &-link {
+            width: 100%;
+            height: 100%;
+            color: s.$color-green;
+        }
+    }
+    &__number.current {
+        color: s.$color-green;
+        border-bottom: solid s.vw(1) s.$color-green;
+        background-color: s.$color-light-gray;
+        @include s.rs(
+            (
+                border-bottom: solid s.mvw(1) s.$color-green,
+            )
+        );
+    }
+    &__prev {
+        margin-right: s.vw(24);
+        @include s.rs(
+            (
+                margin-right: s.mvw(24),
+            )
+        );
+    }
+    &__next {
+        margin-left: s.vw(24);
+        @include s.rs(
+            (
+                margin-left: s.mvw(24),
+            )
+        );
+    }
+}
+
+.pagination__prev,
+.pagination__next {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: s.vw(24);
+    font-size: s.vw(12);
+    color: s.$color-green;
+    @include s.rs(
+        (
+            height: s.mvw(24),
+            font-size: s.mvw(16),
+        )
+    );
+}
+
+.pagination__prev.disabled,
+.pagination__next.disabled {
+    cursor: not-allowed;
+    color: s.$color-gray;
+}
+
+/*制作実績一覧（archive-works.php)------------------*/

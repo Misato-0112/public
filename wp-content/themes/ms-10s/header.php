@@ -27,30 +27,21 @@
                 <div class="header__logo"><a href="<?php echo home_url(); ?>"><img class="header__logo-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Ms-10's works."></a></div>
             <?php endif; ?>
             <nav class="header-nav">
-                <?php
-                $args = [
-                    'menu' => 'global-navigation',
-                    'container' => false,
-                    'menu_class' => 'header-nav__list'
-                ];
-                wp_nav_menu($args);
-                ?>
-
                 <ul class="header-nav__list">
                     <li class="header-nav__item">
-                        <a href="#service" class="header-nav__link">Service</a>
+                        <a href="/#service" class="header-nav__link">Service</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#works" class="header-nav__link">Works</a>
+                        <a href="/works" class="header-nav__link">Works</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#news" class="header-nav__link">News</a>
+                        <a href="/news" class="header-nav__link">News</a>
                     </li>
                     <li class="header-nav__item">
-                        <a href="#about" class="header-nav__link">About</a>
+                        <a href="/#about" class="header-nav__link">About</a>
                     </li>
                     <li>
-                        <a class="header__button contact__button">Contact</a>
+                        <a class="header__button contact__button" href="/contact">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -62,19 +53,19 @@
                 <nav class="hamburger-nav">
                     <ul class="hamburger-nav__list">
                         <li class="hamburger-nav__item">
-                            <a href="#service" class="hamburger-nav__link">Service</a>
+                            <a href="/#service" class="hamburger-nav__link">Service</a>
                         </li>
                         <li class="hamburger-nav__item">
-                            <a href="#works" class="hamburger-nav__link">Works</a>
+                            <a href="/works" class="hamburger-nav__link">Works</a>
                         </li>
                         <li class="hamburger-nav__item">
-                            <a href="#news" class="hamburger-nav__link">News</a>
+                            <a href="/news" class="hamburger-nav__link">News</a>
                         </li>
                         <li class="hamburger-nav__item">
-                            <a href="#about" class="hamburger-nav__link">About</a>
+                            <a href="/#about" class="hamburger-nav__link">About</a>
                         </li>
                         <li>
-                            <a class="hamburger__button contact__button">Contact</a>
+                            <a class="hamburger__button contact__button" href="/contact">Contact</a>
                         </li>
                     </ul>
                 </nav>

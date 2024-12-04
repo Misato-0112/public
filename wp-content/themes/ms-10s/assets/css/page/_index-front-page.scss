@@ -1,0 +1,261 @@
+@use "../setting" as s;
+
+/*カバー------------------*/
+.cover {
+    position: relative;
+    background-image: url("/wp-content/themes/ms-10s/assets/images/cover/cover_image_sp.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: s.vw(450);
+    margin-bottom: s.vw(60);
+    @include s.rs(
+        (
+            background-image: url("/wp-content/themes/ms-10s/assets/images/cover/cover_image_pc.jpg"),
+            height: s.vwp(698),
+            margin-bottom: s.mvw(60),
+        )
+    );
+    &__inner {
+        position: absolute;
+        top: 19%;
+        left: 34%;
+        @include s.rs(
+            (
+                top: 32%,
+                left: 36%,
+            )
+        );
+    }
+    &__title {
+        color: white;
+        text-align: start;
+        font-size: s.vw(48);
+        font-weight: 500;
+        line-height: 1;
+        text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+        @include s.rs(
+            (
+                font-size: s.vwp(48),
+            )
+        );
+        &--big {
+            font-size: s.vw(64);
+            @include s.rs(
+                (
+                    font-size: s.vwp(64),
+                )
+            );
+        }
+        &--small {
+            font-size: s.vw(40);
+            font-weight: 700;
+            @include s.rs(
+                (
+                    font-size: s.vwp(40),
+                )
+            );
+        }
+        &--br {
+            display: block;
+        }
+    }
+}
+
+/*サービス------------------*/
+.service {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: s.vw(40);
+        justify-content: center;
+        align-items: center;
+        @include s.rs(
+            (
+                grid-template-columns: (
+                    s.mvw(330),
+                    s.mvw(330),
+                ),
+                gap: s.mvw(100),
+                margin-inline: auto,
+            )
+        );
+        &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: s.vw(16);
+            @include s.rs(
+                (
+                    width: s.mvw(330),
+                    gap: s.mvw(16),
+                )
+            );
+            &-title {
+                font-size: s.vw(24);
+                text-align: center;
+                margin-bottom: s.vw(8);
+                @include s.rs(
+                    (
+                        font-size: s.mvw(24),
+                        margin-bottom: s.mvw(8),
+                    )
+                );
+            }
+            &-text {
+                font-size: s.vw(14);
+                text-align: justify;
+                @include s.rs(
+                    (
+                        font-size: s.mvw(14),
+                    )
+                );
+            }
+        }
+    }
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: s.vw(140);
+        height: s.vw(140);
+        background-color: s.$color-green;
+        border-radius: 50%;
+        @include s.rs(
+            (
+                width: s.mvw(140),
+                height: s.mvw(140),
+            )
+        );
+    }
+}
+
+// tablarアイコン変更
+.icon-tabler {
+    width: s.vw(60);
+    height: s.vw(60);
+    stroke-width: 1;
+    stroke: #fff;
+    @include s.rs(
+        (
+            width: s.mvw(60),
+            height: s.mvw(60),
+        )
+    );
+}
+
+/*制作実績------------------*/
+/* Swiper全体のスタイル */
+.swiper-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* はみ出しを防ぐ */
+    padding-bottom: s.vw(100); /* 下部の余白 */
+    margin: 0 auto; /* 中央揃え */
+    @include s.rs(
+        (
+            padding-bottom: s.mvw(100),
+        )
+    );
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    width: 100%; /* スライド幅を調整 */
+    box-sizing: border-box; /* パディングやボーダーを含めた幅計算 */
+}
+
+/* ページネーションの設定 */
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    --swiper-pagination-bottom: calc(64 * 100vw / 390);
+    width: 100%;
+    z-index: 10;
+    @include s.rs(
+        (
+            --swiper-pagination-bottom: s.mvw(64),
+        )
+    );
+}
+
+.swiper-pagination-bullet {
+    width: s.vw(12);
+    height: s.vw(12);
+    margin: 0 s.vw(6);
+    background-color: s.$color-green;
+    @include s.rs(
+        (
+            width: s.mvw(12),
+            height: s.mvw(12),
+            margin: 0 s.mvw(6),
+        )
+    );
+}
+
+/* ナビゲーションボタンの設定 */
+.swiper-button-prev,
+.swiper-button-next {
+    display: none;
+}
+
+/*お知らせ------------------*/
+/*loop-newsテンプレートパーツを流用*/
+
+/*私について------------------*/
+#about {
+    background-color: s.$color-light-gray;
+}
+
+.about {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: s.vw(24);
+        @include s.rs(
+            (
+                max-width: s.mvw(740),
+                flex-direction: row,
+                gap: s.mvw(40),
+                margin-inline: auto,
+            )
+        );
+    }
+    &__image-photo {
+        width: s.vw(150);
+        border-radius: 50%;
+        @include s.rs(
+            (
+                width: s.mvw(200),
+            )
+        );
+    }
+    &__text {
+        &-title {
+            font-size: s.vw(24);
+            text-align: center;
+            @include s.rs(
+                (
+                    text-align: start,
+                    font-size: s.mvw(32),
+                    margin-bottom: s.mvw(8),
+                )
+            );
+        }
+        &-content {
+            font-size: s.vw(14);
+            text-align: justify;
+            @include s.rs(
+                (
+                    font-size: s.mvw(16),
+                )
+            );
+        }
+    }
+}

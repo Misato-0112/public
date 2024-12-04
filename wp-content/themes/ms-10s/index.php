@@ -1,6 +1,16 @@
 <?php get_header(); ?>
 
-<main>
+<?php
+// 現在のページがフロントページまたは 'contact' ページの場合
+if (is_front_page() || is_page('contact')) {
+    $main_class = 'main--height';
+} else {
+    $main_class = '';
+}
+?>
+
+<main class="main <?php echo esc_attr($main_class); ?>">
+
     <?php if (is_home()): ?>
         <div class="cover">
             <div class="cover__inner">
@@ -8,6 +18,5 @@
             </div>
         </div>
     <?php endif; ?>
-</main>
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>

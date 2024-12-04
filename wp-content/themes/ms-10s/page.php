@@ -1,7 +1,16 @@
 <?php get_header(); ?>
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
-        <main>
+        <?php
+        // 現在のページがフロントページまたは 'contact' ページの場合
+        if (is_front_page() || is_page('contact')) {
+            $main_class = 'main--height';
+        } else {
+            $main_class = '';
+        }
+        ?>
+
+        <main class="main <?php echo esc_attr($main_class); ?>">
             <section class="section">
                 <div class="section__wrapper">
                     <div class="section__header">
@@ -14,7 +23,6 @@
                     </div>
                 </div>
             </section>
-        </main>
-    <?php endwhile; ?>
-<?php endif; ?>
-<?php get_footer(); ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
+    <?php get_footer(); ?>

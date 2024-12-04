@@ -35,3 +35,89 @@
         );
     }
 }
+
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: s.vw(20);
+    background-color: s.$color-light-gray;
+    padding-block: s.vw(60);
+    @include s.rs(
+        (
+            gap: s.mvw(20),
+            padding-block: s.mvw(60),
+        )
+    );
+    &__title {
+        color: s.$color-black;
+        font-size: s.vw(18);
+        @include s.rs(
+            (
+                font-size: s.mvw(20),
+            )
+        );
+    }
+    &__button {
+        width: s.vw(200);
+        @include s.rs(
+            (
+                width: s.mvw(200),
+            )
+        );
+    }
+}
+
+/*to-topボタン*/
+.to-top-button {
+    position: fixed;
+    bottom: s.vw(41);
+    right: s.vw(20);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    @include s.rs(
+        (
+            bottom: s.mvw(41),
+            right: s.mvw(40),
+        )
+    );
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: s.vw(40);
+        height: s.vw(40);
+        background-color: s.$color-green;
+
+        @include s.rs(
+            (
+                width: s.mvw(40),
+                height: s.mvw(40),
+            )
+        );
+
+        &-icon {
+            width: s.vw(32);
+            height: s.vw(32);
+            color: s.$color-white;
+
+            @include s.rs(
+                (
+                    width: s.mvw(32),
+                    height: s.mvw(32),
+                )
+            );
+        }
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}

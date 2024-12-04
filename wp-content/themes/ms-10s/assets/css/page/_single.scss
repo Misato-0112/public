@@ -1,6 +1,6 @@
 @use "../setting" as s;
 
-/*お知らせ詳細（single.php)------------------*/
+/*詳細共通（single～.php)------------------*/
 /*ページタイトル（共通セクションタイトルからの変更）*/
 .page-title {
     font-size: s.vw(32);
@@ -9,8 +9,10 @@
             font-size: s.mvw(48),
         )
     );
+
     &__main {
         display: inline;
+
         &--small {
             display: inline;
             @include s.rs(
@@ -22,15 +24,18 @@
     }
 }
 
+/*お知らせ詳細（single.php)------------------*/
+/*loopにも記載あり*/
 .news-detail {
     &__wrapper {
-        padding-bottom: s.vw(120);
+        padding-bottom: s.vw(60);
         @include s.rs(
             (
-                padding-bottom: s.mvw(120),
+                padding-bottom: s.mvw(60),
             )
         );
     }
+
     &__header {
         border-bottom: solid s.vw(1) s.$color-gray;
         padding-bottom: s.vw(10);
@@ -41,6 +46,7 @@
             )
         );
     }
+
     &__content {
         display: flex;
         flex-direction: column;
@@ -54,19 +60,164 @@
                 margin-block: s.mvw(24),
             )
         );
+
         /*コンテンツ内テキストリンク装飾*/
         &-text a {
             color: s.$color-green;
             text-decoration: underline;
         }
     }
+
     &__thumbnail-image {
-        width: s.vw(176);
+        width: s.vw(180);
         @include s.rs(
             (
-                width: s.mvw(176),
+                width: s.mvw(300),
             )
         );
     }
 }
 
+/*制作実績詳細（single-works.php)------------------*/
+/*loopにも記載あり*/
+.works-detail {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: s.vw(20);
+        padding-bottom: s.vw(60);
+        @include s.rs(
+            (
+                flex-direction: row,
+                gap: s.mvw(40),
+                padding-bottom: s.mvw(60),
+            )
+        );
+    }
+    &__pic {
+        display: flex;
+        flex-direction: column;
+        gap: s.vw(16);
+        @include s.rs(
+            (
+                gap: s.mvw(16),
+            )
+        );
+    }
+    &__images {
+        width: s.vw(330);
+        @include s.rs(
+            (
+                width: s.mvw(400),
+            )
+        );
+    }
+    &__header {
+        border-bottom: solid s.vw(1) s.$color-gray;
+        padding-bottom: s.vw(5);
+        margin-bottom: s.vw(10);
+        @include s.rs(
+            (
+                border-bottom: solid s.mvw(1) s.$color-gray,
+                padding-bottom: s.mvw(5),
+                margin-bottom: s.mvw(10),
+            )
+        );
+    }
+    &__title {
+        font-size: s.vw(18);
+        @include s.rs(
+            (
+                font-size: s.mvw(24),
+            )
+        );
+    }
+    &__label {
+        margin-bottom: s.vw(24);
+        @include s.rs(
+            (
+                margin-bottom: s.mvw(24),
+            )
+        );
+    }
+    &__category-need_pass-message {
+        font-size: s.vw(12);
+        @include s.rs(
+            (
+                font-size: s.mvw(12),
+            )
+        );
+    }
+    &__content {
+        flex-direction: column;
+        gap: s.vw(24);
+        @include s.rs(
+            (
+                gap: s.mvw(24),
+            )
+        );
+        /*コンテンツ内テキスト装飾*/
+        &-text {
+            & li {
+                text-indent: -1em;
+                padding-left: 1em;
+            }
+            & a {
+                color: s.$color-green;
+                text-decoration: underline;
+            }
+        }
+    }
+    &__link {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: s.vw(6);
+        @include s.rs(
+            (
+                gap: s.mvw(6),
+            )
+        );
+        &-icon {
+            width: s.vw(20);
+            margin-top: s.vw(4);
+            @include s.rs(
+                (
+                    width: s.mvw(20),
+                    margin-top: s.mvw(4),
+                )
+            );
+        }
+        &-url {
+            color: s.$color-green;
+            text-decoration: underline;
+            display: inline-block;
+            max-width: s.vw(300);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            @include s.rs(
+                (
+                    max-width: s.mvw(400),
+                )
+            );
+        }
+    }
+    &__demo-annotation {
+        font-size: s.vw(12);
+        margin-top: s.vw(10);
+        @include s.rs(
+            (
+                font-size: s.mvw(12),
+                margin-top: s.mvw(10),
+            )
+        );
+    }
+}
+
+/*限定公開テキスト内リンク装飾*/
+.message-link {
+    color: s.$color-green;
+    text-decoration: underline;
+}
